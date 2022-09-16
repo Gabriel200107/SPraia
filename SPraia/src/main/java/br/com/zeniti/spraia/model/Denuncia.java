@@ -1,7 +1,5 @@
 package br.com.zeniti.spraia.model;
 
-import java.time.LocalDate;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,18 +21,15 @@ public class Denuncia {
     private String tipo;
     @Column(name = "nv_denuncia",nullable = false)
     private String nivel;
-    @Column(name = "dt_denuncia")
-    private LocalDate dataDenuncia;
 
     public Denuncia() {
     }
 
-    public Denuncia(String descricao, String status, String tipo, String nivel, LocalDate dataDenuncia) {
+    public Denuncia(String descricao, String status, String tipo, String nivel) {
         this.descricao = descricao;
         this.status = status;
         this.tipo = tipo;
         this.nivel = nivel;
-        this.dataDenuncia = dataDenuncia;
     }
 
     public Long getId() {
@@ -75,14 +70,6 @@ public class Denuncia {
 
     public void setNivel(String nivel) {
         this.nivel = nivel;
-    }
-
-    public LocalDate getDataDenuncia() {
-        return dataDenuncia;
-    }
-
-    public void setDataDenuncia(LocalDate dataDenuncia) {
-        this.dataDenuncia = dataDenuncia;
     }
 
 

@@ -12,23 +12,32 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
 @Entity
 @Table(name = "T_USUARIO")
 public class Usuario implements UserDetails {
     
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotBlank(message = "Nome obrigatorio")
     @Column(name = "nm_usuario",nullable=false)
     private String nome;
+
+    @NotBlank(message = "Email obrigatorio")
     @Column(name = "em_usuario", nullable=false)
     private String email;
+
+    @NotBlank(message = "Senha obrigatoria")
+    private String senha;
+
+    @NotNull(message = "Data de nascimento obrigatoria")
     @Column(name = "dt_nascimento")
     private LocalDate dataNascimento;
-    private String senha;
 
      @ManyToMany(fetch = FetchType.EAGER)
      private List<Role> roles;
@@ -41,12 +50,6 @@ public class Usuario implements UserDetails {
         this.email = email;
         this.senha = senha;
         this.dataNascimento = dataNascimento;
-    }
-
-    public Usuario(String nome, String email, String senha) {
-        this.nome = nome;
-        this.email = email;
-        this.senha = senha;
     }
 
     public Long getId() {

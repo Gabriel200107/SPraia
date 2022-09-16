@@ -1,8 +1,6 @@
 package br.com.zeniti.spraia.service;
 import java.util.Optional;
 
-import javax.validation.constraints.Email;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -19,15 +17,13 @@ public class AuthenticationService implements UserDetailsService {
     UsuarioRepository repository;
 
     @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        Optional<Usuario> optional = repository.findByEmail(email);
-
-        System.out.println(optional.get());
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Optional<Usuario> optional = repository.findByEmail(username);
 
         if(optional.isPresent()) return optional.get();
         
 
-        throw new UsernameNotFoundException("username not found " + email);
+        throw new UsernameNotFoundException("username not found " + username);
     }
     
 }

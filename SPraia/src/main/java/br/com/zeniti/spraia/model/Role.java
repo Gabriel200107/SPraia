@@ -1,6 +1,5 @@
 package br.com.zeniti.spraia.model;
 
-import javax.annotation.Generated;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,19 +12,19 @@ public class Role implements GrantedAuthority {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nome;
+    private String name;
 
     public String getName() {
-        return nome;
+        return name;
     }
 
-    public void setName(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
     public String getAuthority() {
-        return this.nome;
+        return this.name;
     }
 
 

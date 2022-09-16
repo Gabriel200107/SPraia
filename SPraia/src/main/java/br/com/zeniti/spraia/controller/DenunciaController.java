@@ -6,8 +6,6 @@ import javax.validation.Valid;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -61,19 +59,16 @@ public class DenunciaController {
 
     @PutMapping("{id}")
     public ResponseEntity<Denuncia> update(@PathVariable Long id, @RequestBody @Valid Denuncia newDenuncia){
-        // carregar a tarefa do banco
+
         Optional<Denuncia> optional = service.get(id);
 
-        // verificar se existe a tarefa com esse id
         if(optional.isEmpty())
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 
-        // atualizar os dados 
         Denuncia denuncia = optional.get();
         BeanUtils.copyProperties(newDenuncia, denuncia);
         denuncia.setId(id);
 
-        // salvar a tarefa
         service.save(denuncia);
 
         return ResponseEntity.ok(denuncia);
