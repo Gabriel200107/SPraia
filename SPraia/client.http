@@ -70,7 +70,7 @@ Authorization: Basic admin@gmail.com 123
 }
 ###
 
-# Atualizar
+# Atualizar praia
 PUT http://localhost:8080/api/praia/1
 Content-Type: application/json
 Authorization: Basic admin@gmail.com 123
