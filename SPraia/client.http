@@ -25,7 +25,7 @@ Content-Type: application/json
 ###
 
 # Atualizar usuário
-PUT http://localhost:8080/api/usuario/2
+PUT http://localhost:8080/api/usuario/3
 Authorization: Basic admin@gmail.com 123
 Content-Type: application/json
 
