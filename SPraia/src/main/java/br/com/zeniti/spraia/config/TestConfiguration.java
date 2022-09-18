@@ -60,7 +60,7 @@ public class TestConfiguration implements CommandLineRunner {
 
         denunciaRepository.saveAll(List.of(
                 new Denuncia("Algumas sacolas de plástico encontradas na areia de Monguaguá", "Solicitada", "Plástico", "Normal"),
-                new Denuncia("Mar infestado de canudos e latinhas", "Solicitada", "Metal e Plástico", "Urgente")
+                new Denuncia("Mar infestado de canudos e latinhas em Praia Grande", "Solicitada", "Metal e Plástico", "Urgente")
         ));
     }
 

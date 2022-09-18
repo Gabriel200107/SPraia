@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "T_PRAIA")
@@ -13,12 +14,19 @@ public class Praia {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotBlank(message = "Nome obrigatorio")
     @Column(name = "nm_praia",nullable = false)
     private String nome;
+
+    @NotBlank(message = "Descricao obrigatoria")
     @Column(name = "ds_praia",nullable = false)
     private String descricao;
+
     @Column(name = "av_praia",nullable = false)
     private int avaliacao;
+
+    @NotBlank(message = "Qualidade obrigatoria")
     @Column(name = "ql_praia",nullable = false)
     private String qualidade;
 

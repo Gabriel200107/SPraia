@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "T_DENUNCIA")
@@ -13,12 +14,20 @@ public class Denuncia {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotBlank(message = "Descricao obrigatoria")
     @Column(name = "ds_denuncia",nullable = false)
     private String descricao;
+    
+    @NotBlank(message = "Status obrigatorio")
     @Column(name = "st_denuncia",nullable = false)
     private String status;
+
+    @NotBlank(message = "Tipo obrigatorio")
     @Column(name = "tp_denuncia",nullable = false)
     private String tipo;
+
+    @NotBlank(message = "Nivel obrigatorio")
     @Column(name = "nv_denuncia",nullable = false)
     private String nivel;
 

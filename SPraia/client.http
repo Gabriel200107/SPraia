@@ -71,7 +71,7 @@ Authorization: Basic admin@gmail.com 123
 ###
 
 # Atualizar praia
-PUT http://localhost:8080/api/praia/1
+PUT http://localhost:8080/api/praia/3
 Content-Type: application/json
 Authorization: Basic admin@gmail.com 123
 
@@ -135,6 +135,6 @@ Authorization: Basic admin@gmail.com 123
 ###
 
 # Deletar denúncia
-DELETE http://localhost:8080/api/denuncia/1
+DELETE http://localhost:8080/api/denuncia/2
 Authorization: Basic admin@gmail.com 123
 ###
