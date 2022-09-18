@@ -1,4 +1,4 @@
-# Projeto SPraia
+# SPraia
 
 Realizamos a entrega atráves de um projeto feito em SpringBoot
 
